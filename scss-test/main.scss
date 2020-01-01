@@ -1,0 +1,11 @@
+.container {
+    $size: 100px;
+    .item {
+        width: $size * 3;
+        height: $size;
+        background: tomato;
+    }
+}
+
+// 컴파일 되지 않는 주석
+/* 컴파일 되는 주석 */
