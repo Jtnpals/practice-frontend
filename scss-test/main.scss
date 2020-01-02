@@ -9,3 +9,60 @@
 
 // 컴파일 되지 않는 주석
 /* 컴파일 되는 주석 */
+
+//상위 선택자 참조
+.btn {
+    width: 100px;
+    height: 100px;
+    &.active{
+        color: red;
+    }
+}
+
+.fs{
+    &-small {
+        font-size: 14px;
+    }
+    &-mediun {
+        font-size: 16px;
+    }
+    &-large {
+        font-size: 18px;
+    }
+}
+
+
+//중첩 벗어나기
+.section {
+    $width: 100px;
+    $height: 200px;
+    width: $width;
+    height: $height;
+
+    item{
+        width: $width;
+        height: $height;
+    }
+
+    @at-root .box {
+        width: $width;
+        height: $height;
+    }
+}
+
+//중첩된 속성정의
+.box {
+    font: {
+        weight: bold;
+        size: 10px;
+        family: sans-serif;
+    }
+    margin: {
+        top: 10px;
+        left: 20px;
+    }
+    padding: {
+        bottom: 40px;
+        right: 30px;
+    }
+}
