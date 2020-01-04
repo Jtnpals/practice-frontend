@@ -66,3 +66,19 @@
         right: 30px;
     }
 }
+
+$color: black;
+.box1{
+    $color: blue !global; //전역변수 파랑으로 바꿈
+    background: $color;
+}
+.box2{
+    background: $color;
+}
+.box3{
+    $color: red; //지역변수로 되서 얘만 빨강
+    background: $color;
+}
+.box4{
+    background: $color; //전역변수 따라가서 파랑
+}
