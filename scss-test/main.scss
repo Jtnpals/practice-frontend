@@ -1,3 +1,6 @@
+$family: unquote($string: "Droid+Sans"); //unquote 내장함수는 문자열에서 따옴표를 제거함
+@import url("http://font.googleapis.com/css?family={$family}");
+
 .container {
     $size: 100px;
     .item {
@@ -82,3 +85,9 @@ $color: black;
 .box4{
     background: $color; //전역변수 따라가서 파랑
 }
+
+.box5{
+    $color: yellow !default; //사용자가 지정한 이름이 같은변수가 있을경우 그 변수를 따라감 따라서 파랑으로 됨
+    background: $color;
+}
+
