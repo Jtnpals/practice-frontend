@@ -1,13 +1,41 @@
 $family: unquote($string: "Droid+Sans"); //unquote 내장함수는 문자열에서 따옴표를 제거함
 @import url("http://font.googleapis.com/css?family={$family}");
+@import "header", "footer"; //여러파일 import  scss 확장자명 생략
 
 .container {
     $size: 100px;
     .item {
-        width: $size * 3;
+        width: $size * 3; //연산시 하나는 반드시 숫자 10px * 10px 처럼 입력시 에러
         height: $size;
         background: tomato;
     }
+}
+
+// width : 50% - 20px; 단위 모순에러
+// width : calc(50% - 20px); 연산가능 scss기능말고 순수한 css 기능
+div {
+    $x : 100px;
+    width: $x / 2; //변수에 담아서 나누면 잘 나눠짐
+    height: (100px / 2); //괄호에 넣어서 나눠도 잘나눠짐
+    font-size: 10px + 12px / 3; //연산에 가능한 경우에 끼워팔기 14px됨
+
+    color: #123456 + #345678; // -> #468ace;
+    // R : 12 + 34 = 46
+    // G : 34 + 56 = 8a
+    // B : 56 + 78 = ce
+    background: rgba(50, 100, 150, .5) + rgba(10, 20 ,30 , .5); //alpha 값은 무조건 동일해야 연산됨
+    // R : 50 + 10 = 60
+    // G : 100 + 20 = 120
+    // B : 150 + 30 = 180
+
+    $color: rgba( 10, 20, 30, .5);
+    color: opacify($color, .3); // 0.5 + 0.3 -> 0.8
+    background-color: transparentize($color, 0.2); // 0.5 - 0.2 -> 0.3
+}
+
+div::after {
+    content: "Hello" + world; //처음에 따옴표 붙고 문자를 더하면 문자열로 출력
+    flex-flow: row + "-reverse" + " " + wrap; //문자열로 출력되지 않음
 }
 
 // 컴파일 되지 않는 주석
