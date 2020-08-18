@@ -16,3 +16,5 @@ work((ms) =>{
     console.log(ms + 'ms 걸렸다고해요');
 });
 console.log('다음 작업');
+
+// Ajax Wep API, 파일읽기, 암복호화, 작업 예약등에 비동기사용
