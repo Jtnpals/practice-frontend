@@ -1,8 +1,21 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import UserList from './UserList'
+import CreateUser from './CreateUser';
 
 function App() {
-  const users = [
+  const [inputs, setInputs] = useState({
+    username: '',
+    email:'',
+  });
+  const {username, email} = inputs;
+  const onChange = e => {
+    const {name, value} = e.target;
+    setInputs({
+      ...inputs,
+      [name]:value
+    })
+  }
+  const [users, setUsers] = useState([
     {
         id: 1,
         username: 'tester1',
@@ -18,15 +31,32 @@ function App() {
         username: 'tester3',
         email: 'tester3@gmail.com'
     },
-  ]
+  ]);
+
+const onRemove = id =>{
+  setUsers(users.filter(user => user.id !== id));
+}
+
 const nextId = useRef(4);
 const onCreate = () => {
+  const user = {
+    id: nextId.current,
+    ...inputs
+  };
+  setUsers([...users, user]); // setUsers(users.concat(user)); push, splice 등 사용하면안됨 불변성유지
+  setInputs({
+    username: '',
+    email: ''
+  })
   console.log(nextId.current); //4
   nextId.current += 1;
 }
 
   return (
-    <UserList users={users}/>
+    <>
+    <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate}/>
+    <UserList users={users} onRemove={onRemove}/>
+    </>
   );
 }
 
