@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import Counter from './Counter';
 import * as serviceWorker from './serviceWorker';
+import ContextSampele from './ContextSample';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
     <Counter />
+    <ContextSampele/>
   </React.StrictMode>,
   document.getElementById('root')
 );
