@@ -33,7 +33,7 @@ function App() {
     console.log('확인');
     setDialog(false);
   };
-  const onCancle = () => {
+  const onCancel = () => {
     console.log('취소');
     setDialog(false);
   };
@@ -75,7 +75,7 @@ function App() {
           confirmText="삭제"
           cancelText="취소"
           onConfirm={onConfirm}
-          onCancle={onCancle}
+          onCancle={onCancel}
           visible={dialog}
         >
           데이터를 정말로 삭제하시겠습니까?
