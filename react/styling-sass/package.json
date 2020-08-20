@@ -1,11 +1,12 @@
 {
-    "name": "useful-tools",
+    "name": "styling-sass",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
+        "classnames": "^2.2.6",
         "eslint-config-prettier": "^6.11.0",
         "node-sass": "^4.14.1",
         "react": "^16.13.1",
