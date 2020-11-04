@@ -24,3 +24,13 @@ $('input[type="button"]').click( function(e) {
             break;
     }
 }) 
+
+$("#go").click( function() {
+    $("#block").animate({
+        width: "300px",
+        opacity: 0.4,
+        marginLeft: "50px",
+        fontSize: "30px",
+        borderWidth: "10px"
+    }, 3000);
+});
