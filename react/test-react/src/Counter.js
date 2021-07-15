@@ -15,6 +15,7 @@ class Counter extends React.Component{
             <div onClick={this.props.onClick}>
                 Counter
             </div>
+
         );
     }
 } 
