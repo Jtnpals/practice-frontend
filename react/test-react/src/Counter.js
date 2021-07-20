@@ -1,22 +1,23 @@
-import { div } from "prelude-ls";
 import React from "react";
-import PropTypes from 'prop-types';
 
 class Counter extends React.Component{
-    static propTypes = {
-        onclick: PropTypes.func,
-    }
     state = {
-
+        value: 0,
     }
+
+    onClick = () =>{
+        this.setState(prevState => ({
+            value: prevState.value + 1
+        }))
+    }
+
     render(){
-
-        return (
-            <div onClick={this.props.onClick}>
-                Counter
+        const {value}= this.state;
+        return(
+            <div onClick={this.onClick}>
+            {value}
             </div>
-
-        );
+        )
     }
 } 
 
